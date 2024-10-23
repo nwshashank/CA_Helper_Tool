@@ -96,6 +96,21 @@
             text-transform: uppercase;
         }
 
+        /* Styling for the top right date */
+        .top-right {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: right;
+        }
+
+        #date, #time {
+            font-size: 18px; /* Matching the same font-size as top-left text */
+            font-weight: bold;
+        }
+
         /* Styling for the social media icons */
         .social-icons {
             position: absolute;
@@ -105,13 +120,13 @@
         }
 
         .social-icons a {
-            color: #000;
+            color: #000000;
             margin: 0 10px;
             text-decoration: none;
         }
 
         .social-icons a:hover {
-            color: #007bff;
+            color: #1e44ce;
         }
 
         /* Vertical separator styling */
@@ -119,6 +134,41 @@
             margin: 0 5px;
         }
     </style>
+
+    <script>
+        function formatDate() {
+            const today = new Date();
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = [
+                'January', 'February', 'March', 'April', 'May', 'June', 
+                'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+
+            const dayName = days[today.getDay()];
+            const day = today.getDate();
+            const monthName = months[today.getMonth()];
+            const year = today.getFullYear();
+
+            return `${dayName}, ${day} ${monthName} ${year}`;
+        }
+
+        function formatTime() {
+            const today = new Date();
+            let hours = today.getHours();
+            let minutes = today.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // If hour is 0, display as 12
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+
+            return `${hours}:${minutes} ${ampm}`;
+        }
+
+        window.onload = function() {
+            document.getElementById('date').innerHTML = formatDate();
+            document.getElementById('time').innerHTML = formatTime();
+        };
+    </script>
 </head>
 <body>
 
@@ -126,76 +176,32 @@
 
     <!-- Text at the top left corner -->
     <div class="top-left">
-            MADE BY CA SHASHANK NAKHATE
+        Tool Made By a CA Shashank Nakhate
+    </div>
+
+    <!-- Today's date displayed at the top right corner -->
+    <div class="top-right">
+        <div id="date"></div>
+        <div id="time"></div>
     </div>
 
     <!-- Social media icons -->
     <div class="social-icons">
-        <a href="https://instagram.com/yourusername" target="_blank">
-            <i class="fab fa-instagram"></i> Instagram</a>
-        <span class="separator">|</span>
-        <a href="https://github.com/yourgithub" target="_blank">
+        <a href="https://github.com/nwshashank" target="_blank">
             <i class="fab fa-github"></i> Github</a>
         <span class="separator">|</span>
-        <a href="https://twitter.com/nw_shahsnka" target="_blank">
+        <a href="https://twitter.com/nw_shashank" target="_blank">
             <i class="fab fa-twitter"></i> Twitter</a>
+        <span class="separator">|</span>
+        <a href="https://www.linkedin.com/in/nwshashank/" target="_blank">
+            <i class="fab fa-twitter"></i> LinkedIn</a>
     </div>
 
     <div id="generatedLinks">
         <div class="section">
-            <h3>BANKS</h3>
-            <div class="result">
-                <a href="https://www.hdfcbank.com/" target="_blank">HDFC BANK</a>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>EQUITY BROKERS</h3>
-            <div class="result">
-                <a href="https://www.google.com/search?q=upstox+official" target="_blank">UPSTOX</a>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>EQUITY BROKERS</h3>
-            <div class="result">
-                <a href="https://www.google.com/search?q=zerodha+official" target="_blank">ZERODHA</a>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>EQUITY BROKERS</h3>
-            <div class="result">
-                <a href="https://www.google.com/search?q=zerodha+official" target="_blank">ZERODHA</a>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>EQUITY BROKERS</h3>
-            <div class="result">
-                <a href="https://www.google.com/search?q=zerodha+official" target="_blank">ZERODHA</a>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>EQUITY BROKERS</h3>
-            <div class="result">
-                <a href="https://www.google.com/search?q=zerodha+official" target="_blank">ZERODHA</a>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>CRYPTO ANALYSIS</h3>
-            <div class="result">
-                <a href="https://www.google.com/search?q=trendlyne+india+brokers+report+and+analysis+on+TCS" target="_blank">TRENDLYNE BROKERAGE REPORT (TCS)</a>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>CRYPTO ANALYSIS</h3>
-            <div class="result">
-                <a href="https://www.screener.in/company/TCS/consolidated" target="_blank">SCREENER (TCS)</a>
-            </div>
+            <h3>TAX OFFICIALS</h3>
+            <div class="result"> <a href="https://www.google.com/search?q=OFFICIAL+MCA+WEBSITE+++" target="_blank">MCA WEBSITE</a></div>
+            <div class="result"> <a href="https://eportal.incometax.gov.in/iec/foservices/#/login" target="_blank">INCOME TAX PORTAL</a></div>
         </div>
     </div>
 
